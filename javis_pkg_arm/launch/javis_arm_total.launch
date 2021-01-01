@@ -1,0 +1,5 @@
+<launch>
+    <node name="javis_arm_controller" pkg="javis_pkg_arm" type="javis_arm_controller" />
+    <node name="javis_arm_motor" pkg="javis_pkg_arm" type="javis_arm_motor" />
+    <node name="javis_arm_grab" pkg="javis_pkg_arm" type="javis_arm_grab" />
+</launch>

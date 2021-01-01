@@ -1,0 +1,12 @@
+<launch>
+  <include file="$(find javis_pkg)/launch/freenect_throttle.launch" />
+  
+  <include file="$(find rtabmap_ros)/launch/rtabmap.launch" >
+    <arg name="subscribe_rgbd" value="true" />
+    <arg name="compressed" value="true" />
+    <arg name="rtabmap_args" value="--delete_db_on_start" />
+    <remap from="rgbd_topic" to="/camera/rgbd_image" />
+  </include>
+</launch>
+
+

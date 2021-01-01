@@ -1,0 +1,196 @@
+<?xml version= "1.0" ?>
+
+<robot name="javis">
+
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="orange">
+    <color rgba="1.0 0.4 0.0 1.0"/>
+  </material>
+  <link name="base_arm_link"/>
+
+  <joint name="joint6" type="revolute">
+    <parent link="base_arm_link"/>
+    <child link="under_arm"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-2.617" upper="2.617" velocity="1.571"/>
+  </joint>
+
+  <link name="under_arm">
+  <collision>
+    <origin rqy="0 0 0" xyz="0 0.0265 0"/>
+    <geometry>
+      <box size="0.01 0.053 0.01"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin rqy="0 0 0" xyz="0 0.0265 0"/>
+    <geometry>
+      <box size="0.01 0.053 0.01"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <inertial>
+    <origin rqy="0 0 0" xyz="0 0.0265 0"/>
+    <mass value="1"/>
+    <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+  </link>
+
+  <joint name="joint5" type="revolute">
+    <parent link="under_arm"/>
+    <child link="arm_2"/>
+    <origin rpy="0 -1.57 1.57" xyz="0.0 0.053 0.0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-2.617" upper="2.617" velocity="1.571"/>
+  </joint>
+
+  <link name="arm_2">
+    <collision>
+      <origin rqy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.255 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rqy="0 0 0" xyz="0.1275 0 0"/>
+      <geometry>
+        <box size="0.255 0.01 0.01"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <inertial>
+      <origin rqy="0 0 0" xyz="0.1275 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>  
+  </link>
+
+  <joint name="joint4" type="revolute">
+    <parent link="arm_2"/>
+    <child link="arm_1"/>
+    <origin rpy="0 0 -1.57" xyz="0.255 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-2.617" upper="2.617" velocity="1.571"/>
+  </joint>
+
+  <link name="arm_1">
+    <collision>
+      <origin rqy="0 0 0" xyz="0.11 0 0"/>
+      <geometry>
+        <box size="0.22 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rqy="0 0 0" xyz="0.11 0 0"/>
+      <geometry>
+        <box size="0.22 0.01 0.01"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <inertial>
+      <origin rqy="0 0 0" xyz="0.11 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>  
+  </link>
+
+  <joint name="joint3" type="revolute">
+    <parent link="arm_1"/>
+    <child link="wrist_2"/>
+    <origin rpy="0 0 -1.57" xyz="0.22 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-2.617" upper="2.617" velocity="1.571"/>
+  </joint>
+
+  <link name="wrist_2">
+    <collision>
+      <origin rqy="0 0 0" xyz="0.0325 0 0"/>
+      <geometry>
+        <box size="0.01 0.075 0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rqy="0 0 0" xyz="0 0.0325 0"/>
+      <geometry>
+        <box size="0.01 0.075 0.01"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <inertial>
+      <origin rqy="0 0 0" xyz="0 0.0325 0"/>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+
+  <joint name="joint2" type="revolute">
+    <parent link="wrist_2"/>
+    <child link="wrist_1"/>
+    <origin rpy="-1.57 0 0" xyz="0 0.075 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-2.617" upper="2.617" velocity="1.571"/>
+  </joint>
+
+  <link name="wrist_1">
+    <collision>
+      <origin rqy="0 0 0" xyz="0 -0.0325 0.0"/>
+      <geometry>
+        <box size="0.01 0.075 0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rqy="0 0 0" xyz="0 -0.0325 0.0"/>
+      <geometry>
+        <box size="0.01 0.075 0.01"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <inertial>
+      <origin rqy="0 0 0" xyz="0 -0.0325 0.0"/>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="joint1" type="revolute">
+    <parent link="wrist_1"/>
+    <child link="grab"/>
+    <origin rpy="1.57 -1.57 0" xyz="0 -0.075 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-2.617" upper="2.617" velocity="1.571"/>
+  </joint>
+
+
+  <link name="grab">
+    <collision>
+      <origin rqy="0 0 0" xyz="0.0325 0 0"/>
+      <geometry>
+        <box size="0.075 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rqy="0 0 0" xyz="0.0325 0 0"/>
+      <geometry>
+        <box size="0.075 0.01 0.01"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+    <inertial>
+      <origin rqy="0 0 0" xyz="0.0325 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="joint0" type="fixed">
+    <parent link="grab"/>
+    <child link="end_effector"/>
+    <origin rpy="0 0 0" xyz="0.075 0 0"/>
+  </joint>
+  <link name="end_effector"/>
+
+</robot>
